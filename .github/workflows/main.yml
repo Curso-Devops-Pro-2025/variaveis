@@ -2,10 +2,30 @@ name: variaveis de ambiente
 on:
   push:
     workflow_dispatch:
+env:
+  ENV_WORKFLOW: "Valor Workflow"
 jobs:
-  env:
+  teste-env:
+    env:
+      ENV_JOB: "Valor JOB"
     runs-on: ubuntu-latest
     steps:
       - name: execucao
+        env:
+          ENV_ACTION: "Valor Action - Execucao"
         run: |
-          echo "Valor XPTO"
+          echo "$ENV_WORKFLOW"
+          echo "$ENV_JOB"
+          echo "$ENV_ACTION"
+  teste-env2:
+    env:
+      ENV_JOB: "Valor JOB"
+    runs-on: ubuntu-latest
+    steps:
+      - name: execucao
+        env:
+          ENV_ACTION: "Valor Action - Segunda Execucao"
+        run: |
+          echo "$ENV_WORKFLOW"
+          echo "$ENV_JOB"
+          echo "$ENV_ACTION"
