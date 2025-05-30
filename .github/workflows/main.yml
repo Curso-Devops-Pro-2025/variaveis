@@ -1,6 +1,7 @@
 name: variaveis de ambiente
 on:
-  workflow_dispatch:
+  push:
+    workflow_dispatch:
 jobs:
   env:
     runs-on: ubuntu-latest
